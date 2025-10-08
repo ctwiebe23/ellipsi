@@ -262,7 +262,3 @@ The above results in:
     <p>I am in the shadow DOM after the slot</p>
 </span>
 ```
-
-## Example
-
-Provided in the `./example/` directory.
