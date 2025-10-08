@@ -262,3 +262,9 @@ The above results in:
     <p>I am in the shadow DOM after the slot</p>
 </span>
 ```
+
+# See Also
+
+- [Source code](https://github.com/ctwiebe23/ellipsi)
+- [Online README](https://ctwiebe23.github.io/ellipsi)
+- [CHANGELOG](https://ctwiebe23.github.io/ellipsi/changelog)
