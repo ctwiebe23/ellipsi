@@ -1,0 +1,20 @@
+{
+  "name": "ellipsi",
+  "version": "3.0.1",
+  "description": "Simple HTML Tag assembler.",
+  "main": "ellipsi.js",
+  "scripts": {},
+  "author": "C Wiebe <ctwiebe23@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "HTMLElement"
+  ],
+  "homepage": "https://ctwiebe23.github.io/ellipsi",
+  "bugs": {
+    "email": "ctwiebe23@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctwiebe23/ellipsi.git"
+  }
+}
