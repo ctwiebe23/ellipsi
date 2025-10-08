@@ -1,4 +1,4 @@
-# Ellipsi
+# Description
 
 `Ellipsi` is a simple JavaScript library used to create HTML tags
 programmatically.
@@ -11,7 +11,7 @@ const MyButton = button(
 )
 ```
 
-## Using Ellipsi
+# Using Ellipsi
 
 `Ellipsi` has one primary function: `tag(name, ...children)`.  This function
 is used to create elements of the type `HTMLElement` with a clean syntax.
@@ -57,7 +57,7 @@ const MyForm = form(
 )
 ```
 
-## Installing Ellipsi
+# Installing Ellipsi
 
 Install the library using `npm` with:
 
@@ -73,9 +73,9 @@ Alternatively, download the library directly from
 [here](https://raw.githubusercontent.com/ctwiebe23/ellipsi/refs/heads/main/ellipsi.js)
 and link to it locally.
 
-## Function Reference
+# Function Reference
 
-### `tag(name, ...children)`
+## `tag(name, ...children)`
 
 While the `name` of the tag should be a string, the `children` given to `tag`
 can be of many different types.  These will be handled as such:
@@ -143,7 +143,7 @@ can be of many different types.  These will be handled as such:
 > </section>
 > ```
 
-### `on(types, callback)`
+## `on(types, callback)`
 
 `EventListener`s can be created using the `on(types, callback)` function, and
 can be attached to `HTMLElement`s via `tag`.
@@ -161,7 +161,7 @@ UserInputForm.addEventListener('click', handleInput)
 UserInputForm.addEventListener('keydown', handleInput)
 ```
 
-### `shortTag(name, ...x)`
+## `shortTag(name, ...x)`
 
 Shortcut functions can be created using the `shortTag(name, ...x)` function,
 and then can be used to create `HTMLElement`s using the `tag` function
@@ -172,7 +172,7 @@ const h1 = shortTag('h1')
 const checkbox = shortTag('input', { type: 'checkbox' })
 ```
 
-### `attr(key, value)`
+## `attr(key, value)`
 
 If you don't like JavaScript Object Notation or need to use JavaScript's
 built-in `Attr` class to represent your HTML attributes, `attr` is provided
@@ -205,7 +205,7 @@ Link.setAttributeNode(href.cloneNode())
 > )
 > ```
 
-### `shadow(...components)`
+## `shadow(...components)`
 
 > [!WARNING]
 >
