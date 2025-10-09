@@ -36,6 +36,7 @@ Since this a common pattern, there is a helper function provided:
 ```js
 const h1 = shortTag('h1')
 const Heading = h1('Tutorial')
+// -> <h1>Tutorial</h1>
 ```
 
 ---
@@ -45,6 +46,7 @@ event handlers, other tags, and arrays.
 
 ```js
 const MyTextInput = input({ id: 'my-text-input' })
+// -> <input id="my-text-input"></input>
 
 const MyForm = form(
   label('Write your name:', { for: MyTextInput.id }),
@@ -55,6 +57,11 @@ const MyForm = form(
     on('click', () => alert('Hello, ' + MyTextInput.value))
   ),
 )
+// -> <form>
+//      <label for="my-text-input">Write your name</label>
+//      <input id="my-text-input"></input>
+//      <button type="button">Greet</button>
+//    </form>
 ```
 
 # Installing Ellipsi
@@ -80,7 +87,7 @@ and link to it locally.
 While the `name` of the tag should be a string, the `children` given to `tag`
 can be of many different types.  These will be handled as such:
 
-4.  `HTMLElement`: Attached to the new tag as a child.
+1.  `HTMLElement`: Attached to the new tag as a child.
 2.  `Attr`: Cloned and attached to the new tag as an attribute.
 2.  `EventListener`: Attached to the new tag using
     `HTMLElement.addEventListener()`.
@@ -168,8 +175,14 @@ and then can be used to create `HTMLElement`s using the `tag` function
 indirectly.
 
 ```js
+// Creating shortcuts:
 const h1 = shortTag('h1')
 const checkbox = shortTag('input', { type: 'checkbox' })
+// Using shortcuts:
+const Heading = h1('Tutorial')
+// -> <h1>Tutorial</h1>
+const UserInput = checkbox({ id: 'user-input', checked: '' })
+// -> <input type="checkbox" id="user-input" checked=""></input>
 ```
 
 ## `attr(key, value)`
