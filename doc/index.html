@@ -356,8 +356,7 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgvRCskAAAJgAAAAckdQT1Ndqu7ZAA
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#ellipsi" id="toc-ellipsi">Ellipsi</a>
-<ul>
+<li><a href="#description" id="toc-description">Description</a></li>
 <li><a href="#using-ellipsi" id="toc-using-ellipsi">Using
 Ellipsi</a></li>
 <li><a href="#installing-ellipsi" id="toc-installing-ellipsi">Installing
@@ -371,11 +370,10 @@ Reference</a>
 <li><a href="#attrkey-value" id="toc-attrkey-value"><code>attr(key, value)</code></a></li>
 <li><a href="#shadow...components" id="toc-shadow...components"><code>shadow(...components)</code></a></li>
 </ul></li>
-</ul></li>
 <li><a href="#see-also" id="toc-see-also">See Also</a></li>
 </ul>
 </nav>
-<h1 id="ellipsi">Ellipsi</h1>
+<h1 id="description">Description</h1>
 <p><code>Ellipsi</code> is a simple JavaScript library used to create
 HTML tags programmatically.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> MyButton <span class="op">=</span> <span class="fu">button</span>(</span>
@@ -383,7 +381,7 @@ HTML tags programmatically.</p>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">on</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="fu">alert</span>(<span class="st">&#39;Clicked&#39;</span>))<span class="op">,</span> <span class="co">// event listeners,</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">id</span><span class="op">:</span> <span class="st">&#39;my-button&#39;</span> }<span class="op">,</span>                 <span class="co">// and attributes.</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<h2 id="using-ellipsi">Using Ellipsi</h2>
+<h1 id="using-ellipsi">Using Ellipsi</h1>
 <p><code>Ellipsi</code> has one primary function:
 <code>tag(name, ...children)</code>. This function is used to create
 elements of the type <code>HTMLElement</code> with a clean syntax.</p>
@@ -397,34 +395,41 @@ elements of the type <code>HTMLElement</code> with a clean syntax.</p>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// -&gt; &lt;h1&gt;Tutorial&lt;/h1&gt;</span></span></code></pre></div>
 <p>Since this a common pattern, there is a helper function provided:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> h1 <span class="op">=</span> <span class="fu">shortTag</span>(<span class="st">&#39;h1&#39;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> Heading <span class="op">=</span> <span class="fu">h1</span>(<span class="st">&#39;Tutorial&#39;</span>)</span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> Heading <span class="op">=</span> <span class="fu">h1</span>(<span class="st">&#39;Tutorial&#39;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// -&gt; &lt;h1&gt;Tutorial&lt;/h1&gt;</span></span></code></pre></div>
 <hr />
 <p>Many different things can be passed to <code>tag</code> as children —
 text, attributes, event handlers, other tags, and arrays.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> MyTextInput <span class="op">=</span> <span class="fu">input</span>({ <span class="dt">id</span><span class="op">:</span> <span class="st">&#39;my-text-input&#39;</span> })</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> MyForm <span class="op">=</span> <span class="fu">form</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">label</span>(<span class="st">&#39;Write your name:&#39;</span><span class="op">,</span> { <span class="dt">for</span><span class="op">:</span> MyTextInput<span class="op">.</span><span class="at">id</span> })<span class="op">,</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  MyTextInput<span class="op">,</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">button</span>(</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Greet&#39;</span><span class="op">,</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;button&#39;</span> }<span class="op">,</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">on</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="fu">alert</span>(<span class="st">&#39;Hello, &#39;</span> <span class="op">+</span> MyTextInput<span class="op">.</span><span class="at">value</span>))</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  )<span class="op">,</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<h2 id="installing-ellipsi">Installing Ellipsi</h2>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// -&gt; &lt;input id=&quot;my-text-input&quot;&gt;&lt;/input&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> MyForm <span class="op">=</span> <span class="fu">form</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">label</span>(<span class="st">&#39;Write your name:&#39;</span><span class="op">,</span> { <span class="dt">for</span><span class="op">:</span> MyTextInput<span class="op">.</span><span class="at">id</span> })<span class="op">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  MyTextInput<span class="op">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">button</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Greet&#39;</span><span class="op">,</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;button&#39;</span> }<span class="op">,</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">on</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="fu">alert</span>(<span class="st">&#39;Hello, &#39;</span> <span class="op">+</span> MyTextInput<span class="op">.</span><span class="at">value</span>))</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  )<span class="op">,</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">// -&gt; &lt;form&gt;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">//      &lt;label for=&quot;my-text-input&quot;&gt;Write your name&lt;/label&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">//      &lt;input id=&quot;my-text-input&quot;&gt;&lt;/input&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">//      &lt;button type=&quot;button&quot;&gt;Greet&lt;/button&gt;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">//    &lt;/form&gt;</span></span></code></pre></div>
+<h1 id="installing-ellipsi">Installing Ellipsi</h1>
 <p>Install the library using <code>npm</code> with:</p>
 <pre><code>npm install ellipsi</code></pre>
 <p>Then, in your JavaScript module:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { tag<span class="op">,</span> on<span class="op">,</span> h1<span class="op">,</span> p <span class="co">/* et cetera */</span> } <span class="im">from</span> <span class="st">&#39;ellipsi&#39;</span></span></code></pre></div>
 <p>Alternatively, download the library directly from <a href="https://raw.githubusercontent.com/ctwiebe23/ellipsi/refs/heads/main/ellipsi.js">here</a>
 and link to it locally.</p>
-<h2 id="function-reference">Function Reference</h2>
-<h3 id="tagname-...children"><code>tag(name, ...children)</code></h3>
+<h1 id="function-reference">Function Reference</h1>
+<h2 id="tagname-...children"><code>tag(name, ...children)</code></h2>
 <p>While the <code>name</code> of the tag should be a string, the
 <code>children</code> given to <code>tag</code> can be of many different
 types. These will be handled as such:</p>
-<ol start="4" type="1">
+<ol type="1">
 <li><code>HTMLElement</code>: Attached to the new tag as a child.</li>
 <li><code>Attr</code>: Cloned and attached to the new tag as an
 attribute.</li>
@@ -477,7 +482,7 @@ places, such as an input in a form who’s value will be used later.</p>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Heya! I am <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;fancy&quot;</span><span class="dt">&gt;</span>Checksum<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span></code></pre></div>
 </blockquote>
-<h3 id="ontypes-callback"><code>on(types, callback)</code></h3>
+<h2 id="ontypes-callback"><code>on(types, callback)</code></h2>
 <p><code>EventListener</code>s can be created using the
 <code>on(types, callback)</code> function, and can be attached to
 <code>HTMLElement</code>s via <code>tag</code>. <code>types</code> is a
@@ -491,14 +496,20 @@ and <code>callback</code> is the callback function that takes one
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>UserInputForm<span class="op">.</span><span class="fu">replaceChildren</span>(<span class="op">...</span>FormContent)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>UserInputForm<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> handleInput)</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>UserInputForm<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;keydown&#39;</span><span class="op">,</span> handleInput)</span></code></pre></div>
-<h3 id="shorttagname-...x"><code>shortTag(name, ...x)</code></h3>
+<h2 id="shorttagname-...x"><code>shortTag(name, ...x)</code></h2>
 <p>Shortcut functions can be created using the
 <code>shortTag(name, ...x)</code> function, and then can be used to
 create <code>HTMLElement</code>s using the <code>tag</code> function
 indirectly.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> h1 <span class="op">=</span> <span class="fu">shortTag</span>(<span class="st">&#39;h1&#39;</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> checkbox <span class="op">=</span> <span class="fu">shortTag</span>(<span class="st">&#39;input&#39;</span><span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;checkbox&#39;</span> })</span></code></pre></div>
-<h3 id="attrkey-value"><code>attr(key, value)</code></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Creating shortcuts:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> h1 <span class="op">=</span> <span class="fu">shortTag</span>(<span class="st">&#39;h1&#39;</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> checkbox <span class="op">=</span> <span class="fu">shortTag</span>(<span class="st">&#39;input&#39;</span><span class="op">,</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;checkbox&#39;</span> })</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Using shortcuts:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> Heading <span class="op">=</span> <span class="fu">h1</span>(<span class="st">&#39;Tutorial&#39;</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">// -&gt; &lt;h1&gt;Tutorial&lt;/h1&gt;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> UserInput <span class="op">=</span> <span class="fu">checkbox</span>({ <span class="dt">id</span><span class="op">:</span> <span class="st">&#39;user-input&#39;</span><span class="op">,</span> <span class="dt">checked</span><span class="op">:</span> <span class="st">&#39;&#39;</span> })</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">// -&gt; &lt;input type=&quot;checkbox&quot; id=&quot;user-input&quot; checked=&quot;&quot;&gt;&lt;/input&gt;</span></span></code></pre></div>
+<h2 id="attrkey-value"><code>attr(key, value)</code></h2>
 <p>If you don’t like JavaScript Object Notation or need to use
 JavaScript’s built-in <code>Attr</code> class to represent your HTML
 attributes, <code>attr</code> is provided as shorthand.</p>
@@ -523,7 +534,7 @@ attributes, <code>attr</code> is provided as shorthand.</p>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">href</span><span class="op">:</span> <span class="st">&#39;https://www.spidersge.org&#39;</span> }<span class="op">,</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </blockquote>
-<h3 id="shadow...components"><code>shadow(...components)</code></h3>
+<h2 id="shadow...components"><code>shadow(...components)</code></h2>
 <blockquote>
 <p>[!WARNING]</p>
 <p>Shadow roots are what I would consider an “advanced topic” for most
