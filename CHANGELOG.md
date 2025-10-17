@@ -1,5 +1,12 @@
 # Ellipsi Changelog
 
+## 3.1.0 on 2025-10-17
+
+### Added
+
+- Optional parameter to the `on` function that lets you pass options to the
+  `addEventListener` function
+
 ## 3.0.1 on 2025-09-12
 
 ### Fixed

@@ -150,13 +150,15 @@ can be of many different types.  These will be handled as such:
 > </section>
 > ```
 
-## `on(types, callback)`
+## `on(types, callback, options?)`
 
 `EventListener`s can be created using the `on(types, callback)` function, and
 can be attached to `HTMLElement`s via `tag`.
 `types` is a string representing the triggering event name(s) separated by
 spaces, and `callback` is the callback function that takes one (optional)
-argument:  The triggering `Event`.
+argument (the triggering `Event`).  `on` also takes one optional parameter,
+`options`, which can be a JSON object of event listener options that will be
+passed directly to the `addEventListener` function.
 
 ```js
 // Ellipsi code:

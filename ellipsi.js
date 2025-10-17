@@ -27,7 +27,7 @@ export const tag = (name, ...children) => {
       } else if (child instanceof Attr) {
         handleAttributeNode(htmlTag, child)
       } else if (child instanceof EventListener) {
-        htmlTag.addEventListener(child.type, child.callback)
+        htmlTag.addEventListener(child.type, child.callback, child.options)
       } else if (child instanceof Shadow) {
         const shadowRoot = htmlTag.attachShadow({ mode: 'open' })
         shadowRoot.adoptedStyleSheets = child.sheets
@@ -113,10 +113,12 @@ export class EventListener {
   /**
    * @param {string} type The event type.
    * @param {EventCallback} callback The callback function.
+   * @param {EventListenerOptions} [options] The event listener options.
    */
-  constructor(type, callback) {
+  constructor(type, callback, options) {
     this.type = type
     this.callback = callback
+    this.options = options
   }
 }
 
@@ -124,10 +126,11 @@ export class EventListener {
  * Creates a number of event containers for a callback function.
  * @param {string} types The event types separated by spaces.
  * @param {EventCallback} callback The callback function.
+ * @param {EventListenerOptions} [options] The event listener options.
  * @returns {EventListener[]} The event containers.
  */
-export const on = (types, callback) => {
-  return types.split(' ').map((type) => new EventListener(type, callback))
+export const on = (types, callback, options) => {
+  return types.split(' ').map((type) => new EventListener(type, callback, options))
 }
 
 /**

@@ -365,7 +365,7 @@ Ellipsi</a></li>
 Reference</a>
 <ul>
 <li><a href="#tagname-...children" id="toc-tagname-...children"><code>tag(name, ...children)</code></a></li>
-<li><a href="#ontypes-callback" id="toc-ontypes-callback"><code>on(types, callback)</code></a></li>
+<li><a href="#ontypes-callback-options" id="toc-ontypes-callback-options"><code>on(types, callback, options?)</code></a></li>
 <li><a href="#shorttagname-...x" id="toc-shorttagname-...x"><code>shortTag(name, ...x)</code></a></li>
 <li><a href="#attrkey-value" id="toc-attrkey-value"><code>attr(key, value)</code></a></li>
 <li><a href="#shadow...components" id="toc-shadow...components"><code>shadow(...components)</code></a></li>
@@ -482,13 +482,16 @@ places, such as an input in a form who’s value will be used later.</p>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Heya! I am <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;fancy&quot;</span><span class="dt">&gt;</span>Checksum<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span></code></pre></div>
 </blockquote>
-<h2 id="ontypes-callback"><code>on(types, callback)</code></h2>
+<h2 id="ontypes-callback-options"><code>on(types, callback, options?)</code></h2>
 <p><code>EventListener</code>s can be created using the
 <code>on(types, callback)</code> function, and can be attached to
 <code>HTMLElement</code>s via <code>tag</code>. <code>types</code> is a
 string representing the triggering event name(s) separated by spaces,
 and <code>callback</code> is the callback function that takes one
-(optional) argument: The triggering <code>Event</code>.</p>
+(optional) argument (the triggering <code>Event</code>). <code>on</code>
+also takes one optional parameter, <code>options</code>, which can be a
+JSON object of event listener options that will be passed directly to
+the <code>addEventListener</code> function.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Ellipsi code:</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> UserInputForm <span class="op">=</span> <span class="fu">form</span>(FormContent<span class="op">,</span> <span class="fu">on</span>(<span class="st">&#39;click keydown&#39;</span><span class="op">,</span> handleInput))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Equivalent js code:</span></span>
