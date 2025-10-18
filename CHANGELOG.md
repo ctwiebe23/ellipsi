@@ -1,5 +1,12 @@
 # Ellipsi Changelog
 
+## 3.2.0 on 2025-10-17
+
+### Changed
+
+- Transitioned to Typescript to generate both the JavaScript file and the
+  Typescript declaration file used by IDEs for code completion
+
 ## 3.1.0 on 2025-10-17
 
 ### Added
