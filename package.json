@@ -16,5 +16,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ctwiebe23/ellipsi.git"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "prettier": {
+    "semi": false,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "singleQuote": true
   }
 }
