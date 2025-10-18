@@ -1,6 +1,12 @@
+/**
+ * A JSON object containing key/value pairs for HTML attributes.
+ */
 export type AttrObject = {
     [key: string]: string | Array<string>;
 };
+/**
+ * Possible children of the tag function.
+ */
 export type TagChild = string | HTMLElement | Text | Attr | EventListener | Shadow | AttrObject | Array<TagChild>;
 /**
  * Creates an HTML tag.  Many helper functions are provided as shortcuts for
@@ -64,6 +70,9 @@ export declare class Shadow {
      */
     constructor(children: (HTMLElement | Text)[], sheets: CSSStyleSheet[]);
 }
+/**
+ * Possible children of the shadow function.
+ */
 export type ShadowChild = CSSStyleSheet | string | HTMLElement | Text | Array<ShadowChild>;
 /**
  * Creates a shadow root that can be attached to an element.

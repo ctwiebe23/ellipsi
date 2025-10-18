@@ -3,9 +3,7 @@
   "version": "3.1.0",
   "description": "Simple HTML Tag assembler.",
   "main": "ellipsi.js",
-  "scripts": {
-    "build": "npx tsc --declaration --module es6"
-  },
+  "scripts": {},
   "author": "C Wiebe <ctwiebe23@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -21,7 +19,7 @@
   },
   "devDependencies": {
     "prettier": "^3.6.2",
-    "tsc": "^2.0.4"
+    "typescript": "^5.9.3"
   },
   "prettier": {
     "semi": false,

@@ -1,5 +1,11 @@
+/**
+ * A JSON object containing key/value pairs for HTML attributes.
+ */
 export type AttrObject = { [key: string]: string | Array<string> }
 
+/**
+ * Possible children of the tag function.
+ */
 export type TagChild =
     | string
     | HTMLElement
@@ -31,7 +37,7 @@ export type TagChild =
 export const tag = (name: string, ...children: TagChild[]): HTMLElement => {
     const htmlTag = document.createElement(name)
 
-    const process = (unprocessedChildren) => {
+    const process = (unprocessedChildren: TagChild[]) => {
         for (let i = 0; i < unprocessedChildren.length; i++) {
             const child = unprocessedChildren[i]
             if (child instanceof HTMLElement || child instanceof Text) {
@@ -54,9 +60,9 @@ export const tag = (name: string, ...children: TagChild[]): HTMLElement => {
             } else if (child instanceof Array) {
                 process(child)
             } else if (child?.constructor === Object) {
-                handleAttributeObject(htmlTag, child)
+                handleAttributeObject(htmlTag, child as AttrObject)
             } else if (child !== null && child !== undefined) {
-                htmlTag.appendChild(document.createTextNode(child))
+                htmlTag.appendChild(document.createTextNode(child as string))
             }
         }
     }
@@ -175,6 +181,9 @@ export class Shadow {
     }
 }
 
+/**
+ * Possible children of the shadow function.
+ */
 export type ShadowChild =
     | CSSStyleSheet
     | string
@@ -192,7 +201,7 @@ export const shadow = (...children: ShadowChild[]): Shadow => {
     let components: (HTMLElement | Text)[] = []
     let sheets: CSSStyleSheet[] = []
 
-    const process = (unprocessedChildren) => {
+    const process = (unprocessedChildren: ShadowChild[]) => {
         for (let i = 0; i < unprocessedChildren.length; i++) {
             const child = unprocessedChildren[i]
             if (child instanceof CSSStyleSheet) {
