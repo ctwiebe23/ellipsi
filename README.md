@@ -106,7 +106,7 @@ can be of many different types.  These will be handled as such:
 >
 > ```js
 > // Improper reusable component:
-> const MyName = span('Checksum', { class: 'fancy' })
+> const MyName = span('C Wiebe', { class: 'fancy' })
 >
 > const AboutMe = section(
 >   h1('About ', MyName), // Name will not appear here
@@ -119,7 +119,7 @@ can be of many different types.  These will be handled as such:
 > ```html
 > <section>
 >   <h1>About </h1>
->   <p>Heya! I am <span class="fancy">Checksum</span></p>
+>   <p>Heya! I am <span class="fancy">C Wiebe</span></p>
 > </section>
 > ```
 >
@@ -133,7 +133,7 @@ can be of many different types.  These will be handled as such:
 >
 > ```js
 > // Proper reusable component:
-> const MyName = () => span('Checksum', { class: 'fancy' })
+> const MyName = () => span('C Wiebe', { class: 'fancy' })
 >
 > const AboutMe = section(
 >   h1('About ', MyName()), // Unique element
@@ -145,8 +145,8 @@ can be of many different types.  These will be handled as such:
 >
 > ```html
 > <section>
->   <h1>About <span class="fancy">Checksum</span></h1>
->   <p>Heya! I am <span class="fancy">Checksum</span></p>
+>   <h1>About <span class="fancy">C Wiebe</span></h1>
+>   <p>Heya! I am <span class="fancy">C Wiebe</span></p>
 > </section>
 > ```
 
