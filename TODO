@@ -1,0 +1,2 @@
+don't render booleans
+doc that null + undef aren't rendered
