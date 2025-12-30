@@ -1,5 +1,15 @@
 # Ellipsi Changelog
 
+## 3.2.1 on 2025-12-30
+
+### Added
+
+- `summary` shortcut function
+
+### Fixed
+
+- `tag` now handles `SVGElements` the same as `HTMLElements`
+
 ## 3.2.0 on 2025-10-17
 
 ### Changed

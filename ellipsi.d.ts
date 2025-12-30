@@ -131,4 +131,5 @@ export declare const main: (...y: TagChild[]) => HTMLElement;
 export declare const footer: (...y: TagChild[]) => HTMLElement;
 export declare const header: (...y: TagChild[]) => HTMLElement;
 export declare const details: (...y: TagChild[]) => HTMLElement;
+export declare const summary: (...y: TagChild[]) => HTMLElement;
 export declare const slot: (...y: TagChild[]) => HTMLElement;

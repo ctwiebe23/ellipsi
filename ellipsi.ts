@@ -40,7 +40,7 @@ export const tag = (name: string, ...children: TagChild[]): HTMLElement => {
     const process = (unprocessedChildren: TagChild[]) => {
         for (let i = 0; i < unprocessedChildren.length; i++) {
             const child = unprocessedChildren[i]
-            if (child instanceof HTMLElement || child instanceof Text) {
+            if (child instanceof HTMLElement || child instanceof Text || child instanceof SVGElement) {
                 htmlTag.appendChild(child)
             } else if (child instanceof Attr) {
                 handleAttributeNode(htmlTag, child)
@@ -274,4 +274,5 @@ export const main = shortTag('main')
 export const footer = shortTag('footer')
 export const header = shortTag('header')
 export const details = shortTag('details')
+export const summary = shortTag('summary')
 export const slot = shortTag('slot')
